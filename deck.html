@@ -290,6 +290,27 @@
     border-radius:8px;display:flex;align-items:center;justify-content:center;}
   .bm-cap{position:absolute;font-size:12.5px;color:var(--muted);font-weight:800;letter-spacing:.02em;}
 
+
+  /* ---------- LLM 뇌 도식 v2 (pill + curve) ---------- */
+  .bmap2{position:relative;margin-top:14px;height:470px;}
+  .bmap2 svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
+  .bm2-brain{position:absolute;left:0;right:0;top:0;text-align:center;}
+  .bm2-brain .em{font-size:84px;line-height:1;display:block;filter:drop-shadow(0 12px 20px rgba(90,70,55,.22));}
+  .bm2-brain .lb{margin-top:8px;font-family:'Pretendard','Pretendard Variable',sans-serif;font-size:23px;font-weight:900;color:var(--ink);}
+  .bm2-brain .lb .eq{color:var(--muted);font-weight:700;margin:0 6px;}
+  .bm2-pill{position:absolute;transform:translateX(-50%);display:inline-flex;align-items:center;gap:10px;
+    background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:13px 28px;
+    font-family:'Pretendard','Pretendard Variable',sans-serif;font-size:21px;font-weight:900;color:var(--ink);
+    box-shadow:0 6px 16px rgba(90,70,55,.10);white-space:nowrap;}
+  .bm2-pill .ic{font-size:22px;line-height:1;}
+  .bm2-pill.hero{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 12px 26px rgba(217,112,21,.32);}
+  .bm2-pill.hero .mini{background:#fff;color:var(--accent);font-size:12.5px;font-weight:800;border-radius:999px;padding:4px 11px;margin-left:2px;}
+  .bm2-sub{position:absolute;transform:translateX(-50%);font-size:15px;color:var(--sub);text-align:center;
+    white-space:nowrap;font-weight:600;}
+  .bm2-cap{position:absolute;transform:translateX(-50%);font-size:12.5px;color:var(--muted);font-weight:800;letter-spacing:.05em;}
+  .bm2-chip{position:absolute;transform:translateX(-50%);background:var(--accent-soft);color:var(--accent);
+    font-size:13px;font-weight:800;border-radius:999px;padding:5px 16px;}
+
 </style>
 <meta name="robots" content="noindex,nofollow">
 </head>
@@ -385,40 +406,29 @@
 
 <section class="slide">
     <h1>뇌는 하나 — 시키는 법이 다를 뿐</h1>
-    <p class="lede">AI의 두뇌는 LLM 하나. 나머지는 그 뇌를 "어떻게 시키느냐"의 차이입니다. 오늘의 주인공은 에이전틱.</p>
-    <div class="brainmap">
-      <!-- LLM -->
-      <div class="bm-node bm-llm" style="left:426px;top:0;width:300px;height:74px;">
-        <div class="bt">LLM</div><div class="bd">두뇌</div>
+    <p class="lede">AI의 두뇌는 LLM 하나. 나머지는 그 뇌를 "어떻게 시키느냐"의 차이입니다.</p>
+    <div class="bmap2">
+      <svg viewBox="0 0 1152 470" aria-hidden="true">
+        <path d="M576,132 C576,174 300,162 300,200" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M576,132 C576,174 852,162 852,200" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M852,288 L852,300" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M852,330 C852,356 640,346 640,368" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M852,330 C852,356 1000,346 1000,368" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="bm2-brain">
+        <span class="em">🧠</span>
+        <div class="lb">LLM<span class="eq">=</span>두뇌</div>
       </div>
-      <!-- 줄기 -->
-      <div class="bm-line" style="left:575px;top:74px;width:2px;height:24px;"></div>
-      <div class="bm-cap" style="left:596px;top:80px;">사용 방법</div>
-      <div class="bm-line" style="left:300px;top:98px;width:552px;height:2px;"></div>
-      <div class="bm-line" style="left:299px;top:98px;width:2px;height:20px;"></div>
-      <div class="bm-line" style="left:851px;top:98px;width:2px;height:20px;"></div>
-      <!-- 채팅 / API -->
-      <div class="bm-node" style="left:150px;top:118px;width:300px;height:84px;">
-        <div class="bt">채팅</div><div class="bd">GPT · Claude · Gemini</div>
-      </div>
-      <div class="bm-node" style="left:702px;top:118px;width:300px;height:84px;">
-        <div class="bt">API</div><div class="bd">코드로 부르는 것</div>
-      </div>
-      <!-- API → 시스템 -->
-      <div class="bm-line" style="left:851px;top:202px;width:2px;height:22px;"></div>
-      <div class="bm-chip" style="left:807px;top:224px;width:90px;height:28px;">시스템</div>
-      <div class="bm-line" style="left:851px;top:252px;width:2px;height:20px;"></div>
-      <div class="bm-line" style="left:660px;top:272px;width:332px;height:2px;"></div>
-      <div class="bm-line" style="left:659px;top:272px;width:2px;height:18px;"></div>
-      <div class="bm-line" style="left:989px;top:272px;width:2px;height:18px;"></div>
-      <!-- 에이전트 / 에이전틱 -->
-      <div class="bm-node" style="left:510px;top:290px;width:300px;height:112px;">
-        <div class="bt">에이전트</div><div class="bd">뇌 + 도구 + 사람이 짜둔 절차</div>
-      </div>
-      <div class="bm-node bm-hero" style="left:840px;top:290px;width:300px;height:112px;">
-        <div class="bt">에이전틱</div><div class="bd">뇌 + 도구 + AI가 흐름(계획)까지</div>
-        <span class="badge" style="margin-top:8px;background:#fff;">오늘 주인공</span>
-      </div>
+      <div class="bm2-cap" style="left:576px;top:152px;">사용 방법</div>
+      <div class="bm2-pill" style="left:300px;top:200px;"><span class="ic">💬</span>채팅</div>
+      <div class="bm2-sub" style="left:300px;top:264px;">GPT · Claude · Gemini</div>
+      <div class="bm2-pill" style="left:852px;top:200px;"><span class="ic">🔌</span>API</div>
+      <div class="bm2-sub" style="left:852px;top:264px;">코드로 부르는 것</div>
+      <div class="bm2-chip" style="left:852px;top:302px;">시스템</div>
+      <div class="bm2-pill" style="left:640px;top:368px;"><span class="ic">🛠️</span>에이전트</div>
+      <div class="bm2-sub" style="left:640px;top:432px;">뇌 + 도구 + 사람이 짜둔 절차</div>
+      <div class="bm2-pill hero" style="left:1000px;top:368px;"><span class="ic">🤖</span>에이전틱<span class="mini">오늘 주인공</span></div>
+      <div class="bm2-sub" style="left:1000px;top:432px;">뇌 + 도구 + AI가 흐름(계획)까지</div>
     </div>
     <div class="footer"><span>개념 · LLM과 시키는 법</span><span>2</span></div>
   </section>
