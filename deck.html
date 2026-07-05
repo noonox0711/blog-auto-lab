@@ -271,6 +271,25 @@
   .filmfan .film2{position:absolute;left:50%;top:40px;margin-left:-75px;width:150px;height:188px;transform-origin:center center;box-shadow:0 8px 20px rgba(90,70,55,.16);}
   .filmfan .fan-badge{position:absolute;right:26px;top:2px;background:var(--ink);color:#fff;font-size:13px;font-weight:800;padding:7px 15px;border-radius:20px;box-shadow:0 6px 16px rgba(0,0,0,.2);z-index:40;}
 
+
+  /* ---------- LLM 두뇌 트리 도식 ---------- */
+  .brainmap{position:relative;margin-top:26px;height:412px;}
+  .bm-line{position:absolute;background:#D9C9B8;}
+  .bm-node{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    box-shadow:0 4px 14px rgba(90,70,55,.08);display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;padding:10px 14px;}
+  .bm-node .bt{font-family:'Pretendard','Pretendard Variable',sans-serif;font-size:22px;font-weight:900;color:var(--ink);}
+  .bm-node .bd{font-size:13.5px;color:var(--sub);margin-top:5px;line-height:1.45;}
+  .bm-llm{background:var(--ink);border-color:var(--ink);}
+  .bm-llm .bt{color:#fff;font-size:26px;}
+  .bm-llm .bd{color:#D8CEC5;}
+  .bm-hero{background:var(--accent);border-color:var(--accent);}
+  .bm-hero .bt{color:#fff;}
+  .bm-hero .bd{color:#FFE4C7;}
+  .bm-chip{position:absolute;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800;
+    border-radius:8px;display:flex;align-items:center;justify-content:center;}
+  .bm-cap{position:absolute;font-size:12.5px;color:var(--muted);font-weight:800;letter-spacing:.02em;}
+
 </style>
 <meta name="robots" content="noindex,nofollow">
 </head>
@@ -365,16 +384,43 @@
   </section>
 
 <section class="slide">
-    <h1>AI를 일에 끼우는 4가지 방식</h1>
-    <p class="lede">같은 AI라도 "어떻게 시키느냐"가 다릅니다. 오늘의 주인공은 에이전틱.</p>
-    <div class="four">
-      <div class="card"><div class="t">LLM</div><div class="d">그냥 물어보면<br>답해주는 것</div><span class="badge">대화</span></div>
-      <div class="card"><div class="t">에이전트</div><div class="d">한 가지 일을<br>맡아 처리</div><span class="badge">도구 사용</span></div>
-      <div class="card hero"><div class="t">에이전틱</div><div class="d">흐름까지 알아서<br>내 PC에서 일함</div><span class="badge">오늘 주인공</span></div>
-      <div class="card"><div class="t">API</div><div class="d">코드로<br>주문하는 것</div><span class="badge">건당 호출</span></div>
+    <h1>뇌는 하나 — 시키는 법이 다를 뿐</h1>
+    <p class="lede">AI의 두뇌는 LLM 하나. 나머지는 그 뇌를 "어떻게 시키느냐"의 차이입니다. 오늘의 주인공은 에이전틱.</p>
+    <div class="brainmap">
+      <!-- LLM -->
+      <div class="bm-node bm-llm" style="left:426px;top:0;width:300px;height:74px;">
+        <div class="bt">LLM</div><div class="bd">두뇌</div>
+      </div>
+      <!-- 줄기 -->
+      <div class="bm-line" style="left:575px;top:74px;width:2px;height:24px;"></div>
+      <div class="bm-cap" style="left:596px;top:80px;">사용 방법</div>
+      <div class="bm-line" style="left:300px;top:98px;width:552px;height:2px;"></div>
+      <div class="bm-line" style="left:299px;top:98px;width:2px;height:20px;"></div>
+      <div class="bm-line" style="left:851px;top:98px;width:2px;height:20px;"></div>
+      <!-- 채팅 / API -->
+      <div class="bm-node" style="left:150px;top:118px;width:300px;height:84px;">
+        <div class="bt">채팅</div><div class="bd">GPT · Claude · Gemini</div>
+      </div>
+      <div class="bm-node" style="left:702px;top:118px;width:300px;height:84px;">
+        <div class="bt">API</div><div class="bd">코드로 부르는 것</div>
+      </div>
+      <!-- API → 시스템 -->
+      <div class="bm-line" style="left:851px;top:202px;width:2px;height:22px;"></div>
+      <div class="bm-chip" style="left:807px;top:224px;width:90px;height:28px;">시스템</div>
+      <div class="bm-line" style="left:851px;top:252px;width:2px;height:20px;"></div>
+      <div class="bm-line" style="left:660px;top:272px;width:332px;height:2px;"></div>
+      <div class="bm-line" style="left:659px;top:272px;width:2px;height:18px;"></div>
+      <div class="bm-line" style="left:989px;top:272px;width:2px;height:18px;"></div>
+      <!-- 에이전트 / 에이전틱 -->
+      <div class="bm-node" style="left:510px;top:290px;width:300px;height:112px;">
+        <div class="bt">에이전트</div><div class="bd">뇌 + 도구 + 사람이 짜둔 절차</div>
+      </div>
+      <div class="bm-node bm-hero" style="left:840px;top:290px;width:300px;height:112px;">
+        <div class="bt">에이전틱</div><div class="bd">뇌 + 도구 + AI가 흐름(계획)까지</div>
+        <span class="badge" style="margin-top:8px;background:#fff;">오늘 주인공</span>
+      </div>
     </div>
-    <div class="takeaway">에이전틱 = 재료만 주면, 순서·작업·저장까지 알아서 하는 방식</div>
-    <div class="footer"><span>개념 · AI 4방식</span><span>2</span></div>
+    <div class="footer"><span>개념 · LLM과 시키는 법</span><span>2</span></div>
   </section>
 
 <section class="slide">
