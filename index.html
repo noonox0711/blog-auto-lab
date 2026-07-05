@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>블로그 자동화 실습 안내 · 1차시</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+<style>
+  :root{
+    --ground:#F5EEE7; --card:#FFFFFF; --ink:#2A2320; --sub:#6E6157;
+    --accent:#D97015; --accent-2:#B85A0E; --soft:#FBEEDF; --line:#EAE0D5;
+    --code:#241F1B; --code-ink:#F3E9DD; --err:#C0392B;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{min-height:100vh;background:var(--ground);color:var(--ink);
+    font-family:'Apple SD Gothic Neo','Pretendard','Malgun Gothic','Noto Sans KR',sans-serif;
+    -webkit-font-smoothing:antialiased;}
+  .bg{min-height:100vh;padding:0 0 64px;}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px;}
+  header.top{padding:42px 0 24px;}
+  .eyebrow{font-size:12.5px;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;}
+  h1{font-size:34px;font-weight:900;letter-spacing:-.02em;margin:10px 0 0;text-wrap:balance;}
+  .lead{font-size:16px;color:var(--sub);margin-top:12px;line-height:1.65;}
+  .lead b{color:var(--ink);}
+  .steps{display:flex;flex-direction:column;gap:14px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;
+    box-shadow:0 2px 10px rgba(90,70,55,.05);}
+  .card-head{display:flex;align-items:center;gap:13px;}
+  .num{flex:none;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;
+    font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;
+    font-variant-numeric:tabular-nums;}
+  .num.lock-ic{background:var(--ink);font-size:15px;}
+  .card h2{font-size:19.5px;font-weight:800;letter-spacing:-.01em;}
+  .card p{font-size:15.5px;color:var(--sub);line-height:1.72;margin-top:12px;}
+  .card p b{color:var(--ink);}
+  .card code{background:var(--soft);color:var(--accent-2);font-weight:800;
+    padding:2px 7px;border-radius:6px;font-size:14px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;
+    font-weight:800;font-size:15.5px;border:none;border-radius:11px;padding:13px 20px;
+    cursor:pointer;text-decoration:none;margin-top:16px;}
+  .btn:hover{background:var(--accent-2);}
+  .btn:focus-visible{outline:3px solid rgba(217,112,21,.42);outline-offset:2px;}
+  .note{font-size:13px;color:var(--sub);margin-top:10px;}
+  form#pwform{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+  form#pwform .btn{margin-top:0;}
+  #pw{flex:1;min-width:180px;font-size:16px;padding:12px 14px;border:1px solid var(--line);
+    border-radius:11px;background:#fff;color:var(--ink);}
+  #pw:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(217,112,21,.15);}
+  .err{color:var(--err);font-size:14px;font-weight:700;margin-top:12px;}
+  .codebox{margin-top:14px;background:var(--code);border-radius:12px;overflow:hidden;}
+  .cb-top{display:flex;justify-content:space-between;align-items:center;
+    padding:10px 12px 10px 16px;border-bottom:1px solid rgba(255,255,255,.09);}
+  .cb-label{font-size:12px;font-weight:700;color:#C7B6A4;letter-spacing:.03em;}
+  .cb-copy{background:rgba(255,255,255,.12);color:#fff;border:none;border-radius:8px;
+    padding:7px 13px;font-size:13px;font-weight:800;cursor:pointer;}
+  .cb-copy:hover{background:rgba(255,255,255,.22);}
+  .cb-copy:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+  pre{margin:0;padding:16px;color:var(--code-ink);font-size:13.5px;line-height:1.62;
+    white-space:pre-wrap;word-break:break-word;overflow-x:auto;
+    font-family:'Apple SD Gothic Neo','Malgun Gothic',ui-monospace,monospace;}
+  pre.cmd{font-size:17px;font-weight:700;padding:18px 16px;color:#fff;}
+  .foot{margin-top:32px;text-align:center;font-size:14px;color:var(--sub);line-height:1.6;}
+  .foot .hand{color:var(--accent);font-weight:800;}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(18px);
+    background:var(--ink);color:#fff;font-weight:700;font-size:14px;padding:11px 20px;
+    border-radius:24px;opacity:0;pointer-events:none;transition:all .24s ease;z-index:50;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  @media (prefers-reduced-motion:reduce){.toast{transition:opacity .01s;}}
+  @media (max-width:520px){h1{font-size:28px;}.wrap{padding:0 15px;}.card{padding:18px;}}
+</style>
+</head>
+<body>
+<div class="bg"><main class="wrap">
+  <header class="top">
+    <div class="eyebrow">정오수학 · 블로그 자동화 1차시</div>
+    <h1>실습 안내</h1>
+    <p class="lead">이 페이지를 보면서 순서대로 따라오세요. 프롬프트와 명령은 <b>복사 버튼</b>으로 바로 긁을 수 있어요.</p>
+  </header>
+
+  <section id="lock" class="card">
+    <div class="card-head"><div class="num lock-ic">🔒</div><h2>열람 비밀번호</h2></div>
+    <p>수업에서 안내받은 비밀번호를 입력하면 실습 안내가 열립니다.</p>
+    <form id="pwform" autocomplete="off">
+      <input id="pw" type="password" placeholder="비밀번호" autocomplete="off" aria-label="열람 비밀번호">
+      <button class="btn" type="submit">열기</button>
+    </form>
+    <p id="pwerr" class="err" hidden>비밀번호가 맞지 않아요. 다시 입력해 주세요.</p>
+  </section>
+
+  <div id="content"></div>
+</main></div>
+<div class="toast" id="toast">복사됐어요 ✓</div>
+
+<script>
+const ENC={salt:"nVacSkd2WPvxNpTrvSHDhQ==",iv:"bQTESnsNUyMBjFNd",ct:"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",iter:150000};
+const $=function(id){return document.getElementById(id);};
+function b64d(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);});}
+async function decryptWith(pw){
+  const km=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64d(ENC.salt),iterations:ENC.iter,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(ENC.iv)},key,b64d(ENC.ct));
+  return new TextDecoder().decode(pt);
+}
+function bind(){
+  const toast=$('toast');let t;
+  function showToast(m){toast.textContent=m;toast.classList.add('show');clearTimeout(t);t=setTimeout(function(){toast.classList.remove('show');},1500);}
+  function fallback(txt,ok){const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(ta);}
+  function copyText(txt,ok){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,function(){fallback(txt,ok);});}else{fallback(txt,ok);}}
+  document.querySelectorAll('#content .cb-copy').forEach(function(b){b.addEventListener('click',function(){const el=document.getElementById(b.getAttribute('data-copy'));copyText(el.innerText,function(){showToast('복사됐어요 ✓');});});});
+  const dl=$('dl');if(dl){dl.addEventListener('click',function(e){if(dl.getAttribute('href')==='#'){e.preventDefault();showToast('다운로드 링크는 준비 중이에요');}});}
+}
+async function tryUnlock(pw){
+  try{const html=await decryptWith(pw);$('content').innerHTML=html;$('lock').hidden=true;$('pwerr').hidden=true;bind();try{sessionStorage.setItem('bpw',pw);}catch(e){}return true;}
+  catch(e){return false;}
+}
+$('pwform').addEventListener('submit',async function(e){e.preventDefault();const pw=$('pw').value.trim();if(!pw)return;const ok=await tryUnlock(pw);if(!ok){$('pwerr').hidden=false;$('pw').value='';$('pw').focus();}});
+(function(){try{const s=sessionStorage.getItem('bpw');if(s){tryUnlock(s);}}catch(e){}})();
+</script>
+</body>
+</html>
