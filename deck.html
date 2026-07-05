@@ -315,8 +315,8 @@
   /* ---------- LLM 가로 도식 v3 ---------- */
   .hbmap{position:relative;margin-top:20px;height:462px;}
   .hbmap svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
-  .hb-col{position:absolute;top:0;font-size:13.5px;font-weight:800;color:var(--muted);letter-spacing:.05em;}
-  .hb-col b{color:var(--accent);font-weight:900;margin-right:7px;}
+  .hb-col{position:absolute;top:-4px;transform:translateX(-50%);font-size:17px;font-weight:800;color:var(--sub);letter-spacing:.03em;white-space:nowrap;display:flex;align-items:center;gap:9px;}
+  .hb-col b{background:var(--accent);color:#fff;font-weight:900;font-size:14px;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;margin:0;}
   .hb-card{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:14px;
     box-shadow:0 5px 16px rgba(90,70,55,.09);padding:18px 20px;display:flex;gap:14px;align-items:flex-start;}
   .hb-ic{flex:none;width:46px;height:46px;border-radius:12px;background:var(--accent-soft);
@@ -337,6 +337,14 @@
   .hb-hero .hb-d{color:#FFE4C7;}
   .hb-hero .hb-f{color:#fff;}
   .hb-hero .hb-f span{background:#fff;color:#8A4508;font-weight:900;}
+
+
+  .hb-hero{border-radius:18px;}
+  .hb-hero .hb-t{font-weight:800;letter-spacing:.005em;}
+  .hb-hero .hb-d{color:#FFEBD6;font-weight:500;}
+  .hb-hero .hb-t .mini{font-weight:700;letter-spacing:0;}
+  .hb-hero .hb-f span{font-weight:800;}
+  .hb-hero .hb-ic{border-radius:14px;}
 
 </style>
 <meta name="robots" content="noindex,nofollow">
@@ -443,9 +451,9 @@
         <circle cx="290" cy="240" r="4" fill="#D9C9B8"/>
         <circle cx="740" cy="352" r="4" fill="#D9C9B8"/>
       </svg>
-      <div class="hb-col" style="left:60px;"><b>1</b>두뇌</div>
-      <div class="hb-col" style="left:442px;"><b>2</b>사용 방법</div>
-      <div class="hb-col" style="left:848px;"><b>3</b>시스템 — 뇌에 얹기</div>
+      <div class="hb-col" style="left:160px;"><b>1</b>두뇌</div>
+      <div class="hb-col" style="left:592px;"><b>2</b>사용 방법</div>
+      <div class="hb-col" style="left:980px;"><b>3</b>시스템</div>
 
       <!-- LLM -->
       <div class="hb-card hb-llm" style="left:30px;top:150px;width:260px;height:180px;">
