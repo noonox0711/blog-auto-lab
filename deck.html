@@ -389,6 +389,13 @@
   .pbub.api .k{color:var(--accent);}
   .t2card.api{border:2px solid var(--accent);box-shadow:0 10px 24px rgba(217,112,21,.22);}
 
+
+  /* 슬라이드 7: LLM을 만나는 두 방식 (제품 A / 재료 B) */
+  .hb7 .hb-t{font-size:19px;}
+  .hb-grp{position:absolute;display:flex;align-items:center;gap:10px;font-size:16.5px;font-weight:800;color:var(--ink);white-space:nowrap;}
+  .hb-grp .gb{background:var(--ink);color:#fff;font-weight:900;font-size:15px;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none;}
+  .hb-grp .gs{font-size:13.5px;font-weight:700;color:var(--muted);}
+
 </style>
 <meta name="robots" content="noindex,nofollow">
 </head>
@@ -527,65 +534,63 @@
   </section>
 
 <section class="slide">
-    <h1>뇌는 하나 — 시키는 법이 다를 뿐</h1>
-    <p class="lede">AI의 두뇌는 LLM 하나. 나머지는 그 뇌를 "어떻게 시키느냐"의 차이입니다.</p>
-    <div class="hbmap">
+    <h1>뇌는 하나 — 만나는 방식은 둘</h1>
+    <p class="lede">같은 LLM(두뇌)을 <b>완성된 제품으로 만나거나</b> · <b>재료(API)로 가져다 씁니다.</b></p>
+    <div class="hbmap hb7">
       <svg viewBox="0 0 1152 462" aria-hidden="true">
-        <path d="M290,240 C355,240 380,120 442,120" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M290,240 C355,240 380,352 442,352" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M740,352 C795,352 800,196 848,196" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M740,352 C790,352 800,372 848,372" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="290" cy="240" r="4" fill="#D9C9B8"/>
-        <circle cx="740" cy="352" r="4" fill="#D9C9B8"/>
+        <path d="M204,231 C228,231 234,114 250,114" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M204,231 C228,231 234,327 250,327" fill="none" stroke="#D9C9B8" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="204" cy="231" r="4" fill="#D9C9B8"/>
       </svg>
-      <div class="hb-col" style="left:160px;"><b>1</b>두뇌</div>
-      <div class="hb-col" style="left:592px;"><b>2</b>사용 방법</div>
-      <div class="hb-col" style="left:980px;"><b>3</b>시스템</div>
 
-      <!-- LLM -->
-      <div class="hb-card hb-llm" style="left:30px;top:150px;width:260px;height:180px;">
+      <!-- LLM 두뇌 -->
+      <div class="hb-card hb-llm" style="left:4px;top:141px;width:200px;height:180px;">
         <span class="em">🧠</span>
         <div class="t">LLM = 두뇌</div>
         <div class="d">말·글은 천재<br>손발은 없음</div>
       </div>
 
-      <!-- 채팅 / API -->
-      <div class="hb-card" style="left:442px;top:60px;width:300px;">
+      <!-- A. 완성된 제품으로 만난다 (사용자) -->
+      <div class="hb-grp" style="left:250px;top:0;"><span class="gb">A</span>완성된 제품으로 만난다<span class="gs">· 그냥 사용자</span></div>
+
+      <div class="hb-card" style="left:250px;top:32px;width:288px;height:158px;">
         <div class="hb-ic">💬</div>
         <div>
-          <div class="hb-t">채팅</div>
-          <div class="hb-d">사람이 직접 말 걸기</div>
+          <div class="hb-t">채팅 웹서비스</div>
+          <div class="hb-d">내가 직접 말 검</div>
           <div class="hb-f"><span>GPT</span><span>Claude</span><span>Gemini</span></div>
         </div>
       </div>
-      <div class="hb-card" style="left:442px;top:292px;width:300px;">
-        <div class="hb-ic">🔌</div>
+      <div class="hb-card" style="left:553px;top:32px;width:288px;height:158px;">
+        <div class="hb-ic">🛠️</div>
         <div>
-          <div class="hb-t">API</div>
-          <div class="hb-d">코드로 부르는 것</div>
-          <div class="hb-f"><span>자동·반복</span><span>매번 백지</span></div>
+          <div class="hb-t">에이전트 AI</div>
+          <div class="hb-d">도구 쥐고 한 가지 일</div>
+          <div class="hb-f"><span>절차는 사람이 지정</span></div>
+        </div>
+      </div>
+      <div class="hb-card hb-hero" style="left:856px;top:32px;width:288px;height:158px;">
+        <div class="hb-ic">🤖</div>
+        <div>
+          <div class="hb-t">에이전틱 AI<span class="mini">오늘 주인공</span></div>
+          <div class="hb-d">스스로 계획·검증·실행</div>
+          <div class="hb-f"><span>Codex</span><span>Claude Code</span></div>
         </div>
       </div>
 
-      <!-- 에이전트 / 에이전틱 -->
-      <div class="hb-card" style="left:848px;top:130px;width:292px;">
-        <div class="hb-ic">🛠️</div>
+      <!-- B. 재료로 가져다 쓴다 (개발자) -->
+      <div class="hb-grp" style="left:250px;top:238px;"><span class="gb">B</span>재료로 가져다 쓴다<span class="gs">· 개발자</span></div>
+
+      <div class="hb-card" style="left:250px;top:270px;width:894px;height:132px;">
+        <div class="hb-ic">🔌</div>
         <div>
-          <div class="hb-t">에이전트</div>
-          <div class="hb-d">한 가지 일을 맡김</div>
-          <div class="hb-f"><span>뇌</span>+<span>도구</span>+<span>사람이 짜둔 절차</span></div>
-        </div>
-      </div>
-      <div class="hb-card hb-hero" style="left:848px;top:306px;width:292px;">
-        <div class="hb-ic">🤖</div>
-        <div>
-          <div class="hb-t">에이전틱<span class="mini">오늘 주인공</span></div>
-          <div class="hb-d">통째로 맡김</div>
-          <div class="hb-f"><span>뇌</span>+<span>도구</span>+<span>AI가 흐름(계획)까지</span></div>
+          <div class="hb-t">API</div>
+          <div class="hb-d">코드로 그 두뇌를 불러 → <b style="color:var(--ink)">A의 것들을 직접 만들거나</b> 내 자동화에 끼웁니다.</div>
+          <div class="hb-f"><span>자동·반복</span><span>매번 백지</span></div>
         </div>
       </div>
     </div>
-    <div class="footer"><span>개념 · LLM과 시키는 법</span><span>3</span></div>
+    <div class="footer"><span>개념 · LLM 만나는 두 방식</span><span>3</span></div>
   </section>
 
 <section class="slide">
